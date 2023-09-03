@@ -1,11 +1,3 @@
-<!-- <script setup></script>
-
-<template>
-	<div>Hello Vue3</div>
-</template>
-
-<style></style> -->
-
 <template>
 	<div>
 		<button v-on:click="increment">Counter: {{ counter }}</button>
