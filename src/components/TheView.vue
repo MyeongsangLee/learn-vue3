@@ -30,10 +30,14 @@
 			</div>
 
 			<hr class="my-4" />
-			<LabelInput
-				:model-value="username"
-				@update:model-value="value => (username = value)"
-			></LabelInput>
+			<!-- :model-value="username"
+				@update:model-value="value => (username = value)" -->
+			<LabelInput v-model="username" label="이름"></LabelInput>
+			<LabelTitle v-model:title="username" label="제목"></LabelTitle>
+			<Username
+				v-model:firstname="firstname"
+				v-model:lastname="lasttname"
+			></Username>
 		</div>
 	</main>
 </template>
@@ -43,6 +47,8 @@ import { ref, reactive } from 'vue';
 import AppCard from '@/components/AppCard.vue';
 import PostCreate from '@/components/PostCreate.vue';
 import LabelInput from '@/components/LabelInput.vue';
+import LabelTitle from '@/components/LabelTitle.vue';
+import Username from '@/components/Username.vue';
 
 export default {
 	setup() {
@@ -67,9 +73,11 @@ export default {
 		};
 
 		const username = ref('');
-		return { post, posts, createPost, username };
+		const firstname = ref('');
+		const lastname = ref('');
+		return { post, posts, createPost, username, firstname, lastname };
 	},
-	components: { AppCard, PostCreate, LabelInput },
+	components: { AppCard, PostCreate, LabelInput, LabelTitle, Username },
 };
 </script>
 
