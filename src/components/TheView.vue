@@ -1,16 +1,16 @@
 <template>
-	<div class="container py-4">
-		<ProvideInject></ProvideInject>
-	</div>
+	<main>
+		<TemplateRefs></TemplateRefs>
+	</main>
 </template>
 
 <script>
-import ProvideInject from './ProvideInject.vue';
+import TemplateRefs from './TemplateRefs.vue';
 export default {
 	setup() {
 		return {};
 	},
-	components: { ProvideInject },
+	components: { TemplateRefs },
 };
 </script>
 
