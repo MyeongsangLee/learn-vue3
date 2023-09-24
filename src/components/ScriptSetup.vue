@@ -5,10 +5,16 @@
 		{{ message }}
 		<input v-model="message" type="text" />
 		<button v-on:click="sayHello">Click</button>
-		<PostItem type="news" title="제목" contents="내용" isLike="true"></PostItem>
+		<PostItem
+			type="news"
+			title="제목"
+			contents="내용"
+			isLike="true"
+			@toggle-like="post.isLike = !post.isLike"
+		></PostItem>
 		<hr />
 		<TemplateRefsChild ref="child"></TemplateRefsChild>
-		<template v-if="child">{{ child.message }}</template>
+		<template v-if="child">{{ child.message + '111' }}</template>
 	</div>
 </template>
 
@@ -16,7 +22,7 @@
 import { ref } from 'vue';
 import PostItem from '@/components/setup/PostItem.vue';
 import TemplateRefsChild from '@/components/setup/TemplateRefsChild.vue';
-import axios from 'axios';
+// import axios from 'axios';
 
 const msg = 'Hello World~!!';
 const message = ref('');
@@ -29,10 +35,10 @@ defineExpose({
 	msg,
 });
 
-const response = await axios(
-	'https://dummy.restapiexample.com/api/v1/employees',
-);
-console.log('response:', response);
+// const response = await axios(
+// 	'https://dummy.restapiexample.com/api/v1/employees',
+// );
+// console.log('response:', response);
 </script>
 
 <style lang="scss" scoped></style>
